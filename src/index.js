@@ -1,4 +1,5 @@
 import express from "express";
+import { matchRouter } from "./db/routes/matches.js";
 
 const app = express();
 const PORT = 8000;
@@ -12,6 +13,8 @@ app.get("/", (req, res) => {
     message: "Server is running successfully 🚀",
   });
 });
+
+app.use("/matches", matchRouter);
 
 // Start server
 app.listen(PORT, () => {
