@@ -1,9 +1,11 @@
 import { Router } from "express";
 import { eq, desc } from "drizzle-orm";
-import { matchIdParamSchema } from "../validation/matches.js";
-import { createCommentarySchema, listCommentaryQuerySchema } from "../validation/commentary.js";
-import { db } from "../db/db.js";
-import { commentary } from "../db/schema.js";
+
+// ✅ FIXED PATHS
+import { matchIdParamSchema } from "../../validation/matches.js";
+import { createCommentarySchema, listCommentaryQuerySchema } from "../../validation/commentary.js";
+import { db } from "../db.js";
+import { commentary } from "../schema.js";
 
 const MAX_LIMIT = 100;
 
@@ -56,13 +58,14 @@ commentaryRouter.post('/', async (req, res) => {
 
     try {
         const { minute, ...rest } = bodyResult.data;
+
         const [result] = await db.insert(commentary).values({
             matchId: paramsResult.data.id,
             minute,
             ...rest
         }).returning();
 
-        if(res.app.locals.broadcastCommentary) {
+        if (res.app.locals.broadcastCommentary) {
             res.app.locals.broadcastCommentary(result.matchId, result);
         }
 
