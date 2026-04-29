@@ -47,3 +47,6 @@ export function securityMiddleware() {
         next();
     }
 }
+
+
+// faced a lot of diifucultty with the code 
