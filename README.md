@@ -39,6 +39,6 @@ Sportz is a real‑time backend for managing sports matches and live commentary.
 ### Installation
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Sunny-2610/Sportz
 cd sportz
 npm install
