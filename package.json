@@ -1,7 +1,8 @@
 {
   "name": "sportz",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "dev": "node --watch src/index.js",
     "start": "node src/index.js",
@@ -9,12 +10,10 @@
     "db:migrate": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "seed": "node src/seed/seed.js"
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "description": "",
   "dependencies": {
     "@arcjet/inspect": "^1.4.0",
@@ -25,10 +24,10 @@
     "express": "^5.2.1",
     "pg": "^8.20.0",
     "ws": "^8.20.0",
-    "wscat": "^6.1.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.31.10"
+    "drizzle-kit": "^0.31.10",
+    "wscat": "^6.1.0"
   }
 }
